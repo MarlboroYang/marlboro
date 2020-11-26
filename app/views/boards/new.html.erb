@@ -1,0 +1,11 @@
+<h1>新增討論板</h1>
+
+<%= form_for(@board) do |f| %>
+<%= f.label :title, '名稱' %>
+<%= f.text_field :title %>
+<%= f.label :chat, '討論方向' %>
+<%= f.text_area :chat %>
+<%= f.submit %>
+<% end %>
+</br>
+<%= link_to '看板首頁', boards_path %>

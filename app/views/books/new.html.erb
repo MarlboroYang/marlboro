@@ -1,0 +1,13 @@
+<h1>新增書藉</h1>
+
+<%= form_for(@book) do |f| %>
+<%= f.label :name, '書名' %>
+<%= f.text_field :name %>
+<%= f.label :price, '價格'%>
+<%= f.text_field :price %>
+<%= f.label :note, '註解' %>
+<%= f.text_field :note %>
+<%= f.submit %>
+<% end %>
+</br>
+<%= link_to '首頁', root_path %>

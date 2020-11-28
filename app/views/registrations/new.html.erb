@@ -1,0 +1,37 @@
+<h1>新增會員資料</h1>
+<p><%= notice %></p>
+
+<% if @user.errors.any? %>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for(@user) do |f| %>
+
+<div class="fields">
+<%= f.label :name, '姓名' %>
+<%= f.text_field :name %>
+</div>
+
+<div class="fields">
+<%= f.label :email %>
+<%= f.text_field :email %>
+</div>
+
+<div class="fields">
+<%= f.label :password, '輸入密碼'%>
+<%= f.password_field :password %>
+</div>
+<div class="fields">
+<%= f.label :password_confirmation, '再確認一次確密碼' %>
+<%= f.password_field :password_confirmation %>
+</div>
+<div class="fields">
+<%= f.label :nickname, '暱稱' %>
+<%= f.text_field :nickname %>
+</div>
+<%= f.submit %>
+<% end %>

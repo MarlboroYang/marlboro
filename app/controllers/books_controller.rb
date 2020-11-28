@@ -10,7 +10,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     if @book.save
-      redirect_to root_path, notice: '新增成功'
+      redirect_to books_path, notice: '新增成功'
     else
       render :new
     end
@@ -19,14 +19,16 @@ class BooksController < ApplicationController
   end
   def update
     if @book.update(book_params)
-      redirect_to root_path, notice: '更新成功'
+      redirect_to books_path, notice: '更新成功'
     else
       render :edit
     end 
   end
   def destroy
     @book.destroy if @book
-    redirect_to root_path, notice: '刪除成功'
+    redirect_to books_path, notice: '刪除成功'
+  end
+  def show
   end
   private
   def book_params

@@ -10,7 +10,8 @@
   </head>
 
   <body>
-    <%= notice %>
+    <%= render "shard/navbar" %>
+    <%= render "shard/flash" if notice %>
     <%= yield %>
   </body>
 </html>

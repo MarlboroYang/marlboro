@@ -1,14 +1,29 @@
 class RegistrationsController < ApplicationController
+  before_action :session_required, only: [:edit, :update]
   def new
     @user = User.new
   end
   def create
-    @user = User.new(params[:user])
+    @user = User.new(user_params)
     if @user.save
-      redirect_to root_path, notice: '新增成功'
+      redirect_to books_path, notice: '新增成功'
     else
-      rander :new
+      render :new
     end
   end
+  def edit
+  end
+  def update
+    if current_user.update(user_params)
+      redirect_to books_path, notice: '資料更新成功'
+    else
+      #
+    end
+  end
+  private
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :nickname)
+  end
+  
   
 end
